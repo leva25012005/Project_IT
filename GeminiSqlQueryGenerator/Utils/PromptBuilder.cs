@@ -55,17 +55,29 @@ namespace GeminiSqlQueryGenerator.Utils
 
             sb.AppendLine("Bạn là một chuyên gia SQL giúp chuyển đổi câu hỏi bằng ngôn ngữ tự nhiên thành câu truy vấn SQL chính xác.");
             sb.AppendLine();
-            sb.AppendLine("Dưới đây là lược đồ cơ sở dữ liệu:");
+            sb.AppendLine("## Dưới đây là lược đồ cơ sở dữ liệu:");
             sb.AppendLine(schemaDescription);
             sb.AppendLine();
-            sb.AppendLine("Hãy tạo câu truy vấn SQL cho câu hỏi sau:");
+
+            sb.AppendLine("## Hãy tạo câu truy vấn SQL cho câu hỏi sau:");
             sb.AppendLine(userQuery);
             sb.AppendLine();
-            sb.AppendLine("Yêu cầu:");
-            sb.AppendLine("1. Chỉ trả về câu truy vấn SQL, không kèm theo giải thích.");
-            sb.AppendLine("2. Đảm bảo câu truy vấn chính xác về cú pháp và sử dụng đúng cấu trúc của cơ sở dữ liệu.");
-            sb.AppendLine("3. Sử dụng JOIN khi cần để kết nối dữ liệu từ nhiều bảng.");
-            sb.AppendLine("4. Đặt bí danh (alias) cho các bảng khi cần thiết để tăng độ rõ ràng.");
+
+            sb.AppendLine("## Hướng dẫn:");
+            sb.AppendLine("1. Phân tích kỹ lược đồ CSDL trước khi viết truy vấn.");
+            sb.AppendLine("2. Nếu có cột hoặc bảng được nhắc đến trong câu hỏi không tồn tại trong CSDL, hãy trả về thông báo lỗi rõ ràng với định dạng: ERROR: [chi tiết lỗi]");
+            sb.AppendLine("3. Đối với truy vấn phức tạp, hãy sử dụng Common Table Expressions (CTE) để làm rõ các bước trung gian.");
+            sb.AppendLine("4. Sử dụng JOIN khi cần kết nối nhiều bảng, chỉ rõ loại JOIN (INNER, LEFT, RIGHT).");
+            sb.AppendLine("5. Sử dụng các hàm tổng hợp (SUM, COUNT, AVG) khi câu hỏi yêu cầu tính toán số liệu.");
+            sb.AppendLine("6. Tối ưu câu truy vấn để tránh subquery không cần thiết.");
+            sb.AppendLine("7. Sử dụng chính xác các từ khóa như WHERE, GROUP BY, HAVING, ORDER BY khi cần thiết.");
+            sb.AppendLine("8. Xác định và xử lý rõ các điều kiện so sánh (=, <>, >, <, LIKE, etc.).");
+            sb.AppendLine("9. Đặt tên alias cho các bảng và cột một cách rõ ràng.");
+            sb.AppendLine();
+
+            sb.AppendLine("## Phản hồi:");
+            sb.AppendLine("1. Nếu các điều kiện đều hợp lệ, chỉ trả về câu truy vấn SQL cuối cùng (không kèm phân tích).");
+            sb.AppendLine("2. Nếu phát hiện lỗi, trả về thông báo lỗi với định dạng 'ERROR: [chi tiết lỗi]'.");
 
             return sb.ToString();
         }
