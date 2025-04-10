@@ -1,0 +1,15 @@
+GeminiSqlQueryGenerator/
+├── Services/
+│   ├── GeminiService.cs          # Dịch vụ giao tiếp với Gemini API
+│   ├── DatabaseSchemaService.cs  # Dịch vụ quản lý lược đồ CSDL
+│   └── QueryGenerationService.cs # Dịch vụ tạo câu truy vấn
+├── Models/
+│   ├── DatabaseSchema.cs         # Mô hình lược đồ CSDL
+│   ├── GeminiRequest.cs          # Mô hình yêu cầu gửi tới Gemini
+│   └── GeminiResponse.cs         # Mô hình phản hồi từ Gemini
+├── Utils/
+│   └── PromptBuilder.cs          # Tiện ích xây dựng prompt
+├── Config/
+│   └── AppSettings.cs            # Cấu hình ứng dụng
+├── appsettings.json              # File cấu hình
+└── Program.cs                    # Điểm vào ứng dụng
